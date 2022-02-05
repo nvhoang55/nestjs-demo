@@ -12,9 +12,10 @@ export class StudentsController {
     return `Student with id #${id}`;
   }
 
-  @Post()
-  createStudent(): string {
-    return 'Create a new student';
+  @Post('create')
+  createStudent(@Body() body): string {
+    const parsedBody = JSON.stringify(body);
+    return `Create a new student with info: ${parsedBody}`;
   }
 
   @Put('/:id')
